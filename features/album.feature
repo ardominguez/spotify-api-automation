@@ -8,7 +8,8 @@ Feature: Albums
 
   Scenario: Validate GET 200 v1/albums by market
     Given I get the authorization api access token for execute endpoint "albums"
-    When I execute a "GET" request to "/albums/" with path variable "valid_album_id" and parameters "valid_market"
+    And I get an available market for an album
+    When I execute a "GET" request to "/albums/" with path variable "valid_album_id" for an available market
     Then I receive a valid "200" status response code
 
   Scenario: Validate GET 400 v1/artist invalid artist profile
