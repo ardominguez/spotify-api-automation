@@ -25,7 +25,7 @@ pip3 install -r requirements.txt
 ```
 ## Configure global viariable
 
-- CLIENT_ID
+- CLIENT_ID: https://developer.spotify.com/dashboard/applications
 - CLIENT_SECRET
 - REFRESH_TOKEN
 
