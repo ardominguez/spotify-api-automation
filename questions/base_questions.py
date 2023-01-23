@@ -10,8 +10,9 @@ class BaseQuestion:
         return False
 
     @staticmethod
-    def validated_status_code_response(expected_code, current_code):
-        return expected_code == current_code
+    def validated_status_code_response(context, expected_code):
+        current_status_code_response = context.response_code
+        return int(expected_code) == int(current_status_code_response)
 
     @staticmethod
     def is_a_empty_list(response_body):
@@ -20,3 +21,8 @@ class BaseQuestion:
             if isinstance(get_list, list) and get_list == []:
                 return True
         return False
+
+    @staticmethod
+    def validated_error_message_response(context, expected_message):
+        error_message_response = context.response_body['error']['message']
+        return str(error_message_response) == str(expected_message)
