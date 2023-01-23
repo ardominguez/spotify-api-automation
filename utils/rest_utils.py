@@ -22,3 +22,7 @@ def get_token_from_auth_response(auth_response):
         return auth_response.get("token")
     else:
         return None
+
+
+def build_request_endpoint():
+    pass

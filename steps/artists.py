@@ -1,10 +1,8 @@
 from behave import given, when, then, step, use_step_matcher
-from questions.base_questions import BaseQuestion
+from questions import artist_questions
 
 
 # /artists steps
-@step(u'The artist "{artist_type}" should be "{artist}"')
-def step_impl(context, artist_type, artist):
-    current_artist = context.response_body[type]
-    expected_artist_information = str(artist)
-    assert current_artist == expected_artist_information
+@step(u'The artist "{artist_information}" should be "{artist_value}"')
+def step_impl(context, artist_information, artist_value):
+    assert artist_questions.validated_artist_information(context, artist_information, artist_value)
