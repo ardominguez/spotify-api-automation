@@ -12,5 +12,5 @@ def step_impl(context):
 
 @when(u'I execute a "{method}" request to service "{service}" with path variable "{variable_path}" for an available market')
 def step_impl(context, method, service, variable_path):
-    context.response_code, context.response_body = build_request_by_market(context, method, service, context.available_market)
+    context.response_code, context.response_body = build_request_by_market(context, method, service, variable_path, context.available_market)
 

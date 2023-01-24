@@ -25,7 +25,7 @@ def step_impl(context, method, service, variable_path):
 
 @when(u'I execute a "{method}" request to service "{service}" with path variable "{variable_path}" and parameters "{parameter}"')
 def step_impl(context, method, service, variable_path, parameter):
-    context.response_code, context.response_body = call_service_with_parameters(method, service, parameter)
+    context.response_code, context.response_body = call_service_with_parameters(method, service, variable_path, parameter)
 
 
 # /code response
