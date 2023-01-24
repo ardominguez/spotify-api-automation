@@ -12,7 +12,7 @@ Feature: Albums
     When I execute a "GET" request to service "albums" with path variable "valid_album_id" for an available market
     Then I receive a valid "200" status response code
 
-  Scenario Outline: Validate GET 400 v1/albums
+  Scenario Outline: Validate GET 400 v1/albums invalid request
     Given I get the authorization api access token
     When I execute a "GET" request to service "albums" with path variable "<invalid>"
     Then I receive a valid "400" status response code
@@ -22,3 +22,9 @@ Feature: Albums
       | invalid          |
       | invalid_album_id |
       | empty_album_id   |
+
+  Scenario: Validate GET 401 v1/album unauthorized
+    Given I get invalid authorization api access token
+    When I execute a "GET" request to service "albums" with path variable "valid_album_id"
+    Then I receive a valid "401" status response code
+    And I receive a valid error message "Invalid access token"

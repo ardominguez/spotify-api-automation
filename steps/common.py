@@ -1,12 +1,8 @@
 from behave import given, when, then, step, use_step_matcher
-from facts.authorization_client import get_access_token
-from facts.endpoints import BASE_API_SPOTIFY
-from facts.rest_client import RestClient
-from facts.services import services
+from facts.authorization_client import get_access_token, build_invalid_access_token
 from questions.base_questions import BaseQuestion
 from task.common_task import call_service_with_variable_path, call_service_with_parameters
-from utils.load_json import load_variable_path, load_parameters
-from utils.rest_utils import build_bearer_authorization_header
+
 
 use_step_matcher("parse")
 
@@ -15,6 +11,11 @@ use_step_matcher("parse")
 @given(u'I get the authorization api access token')
 def step_impl(context):
     context.access_token = get_access_token()
+
+
+@given(u'I get invalid authorization api access token')
+def step_impl(context):
+    context.access_token = build_invalid_access_token()
 
 
 # /request

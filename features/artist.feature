@@ -18,3 +18,9 @@ Feature: Artist
       | invalid           |
       | invalid_artist_id |
       | empty_artist_id   |
+
+  Scenario: Validate GET 400 v1/artist unauthorized
+    Given I get invalid authorization api access token
+    When I execute a "GET" request to service "artists" with path variable "valid_artist_id"
+    Then I receive a valid "401" status response code
+    And I receive a valid error message "Invalid access token"

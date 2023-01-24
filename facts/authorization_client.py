@@ -17,3 +17,7 @@ def get_access_token():
     }
     auth_code, auth_response = rest_client.do_post_data("/api/token", form_body)
     return auth_response['access_token']
+
+
+def build_invalid_access_token():
+    return get_access_token() + "testing"

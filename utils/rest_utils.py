@@ -11,10 +11,6 @@ def build_bearer_authorization_header(token):
     return "Bearer {}".format(token)
 
 
-def build_invalid_authorization_header(token):
-    return {"Authorization": "token {}".format(token)}
-
-
 def get_token_from_auth_response(auth_response):
     if auth_response.get("jwt"):
         return auth_response.get("jwt")
