@@ -1,8 +1,7 @@
 from behave import given, when, then, step, use_step_matcher
 from facts.authorization_client import get_access_token, build_invalid_access_token
 from questions.base_questions import BaseQuestion
-from task.common_task import call_service_with_variable_path, call_service_with_parameters
-
+from task.common_task import call_service_with_variable_path, call_service_with_parameters, call_service
 
 use_step_matcher("parse")
 
@@ -19,9 +18,9 @@ def step_impl(context):
 
 
 # /request
-@step(u'I execute a "{method}" request to service "{service}" with path variable "{variable_path}"')
-def step_impl(context, method, service, variable_path):
-    context.response_code, context.response_body = call_service_with_variable_path(context, method, service, variable_path)
+@step(u'I execute a "{method}" request to service "{service}" with path variable "{data_file}"')
+def step_impl(context, method, service, data_file):
+    context.response_code, context.response_body = call_service(context, method, service, data_file)
 
 
 @when(u'I execute a "{method}" request to service "{service}" with path variable "{variable_path}" and parameters "{parameter}"')

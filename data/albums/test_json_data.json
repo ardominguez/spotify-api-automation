@@ -1,0 +1,11 @@
+{
+  "request_body": {
+
+  },
+  "path_variables": {
+    "id": "asjdajsdjsa"
+  },
+  "query_params": {
+    "limit": 20
+  }
+}

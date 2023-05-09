@@ -1,0 +1,6 @@
+{
+  "operation_url": "/:id_artist",
+  "path_variables": {
+    "id_artist": "invalid0TnOYISbd1XYRBk9myaseg"
+  }
+}
