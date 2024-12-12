@@ -3,7 +3,7 @@ Automation testing api framework for Spotify api
 
 ## Getting Started
 
-Clone charmandeer-qa repository and install requirements. It's
+Clone spotify-api-automation repository and install requirements. It's
 highly recommendable to use a virtualenv.
 
 
